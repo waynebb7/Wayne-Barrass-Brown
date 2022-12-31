@@ -3,24 +3,411 @@
 <html lang="en">
 
 <head>
+    <style>
+        /* --------------------------------------------------------ALL */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #6663ff;
+        }
+
+        /* ----------------------------------------------------------------- */
+
+        nav {
+            background: #6663ff;
+            padding: 10px 40px 10px 70px;
+            border: 1px solid #2e2bf4;
+            border-left: none;
+            border-right: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav ul li.logo {
+            flex: 1;
+            font-size: 30px;
+            font-weight: 400;
+            color: #f2f2f2;
+        }
+
+        nav ul div.items {
+            padding: 0 25px;
+            display: inline-flex;
+        }
+
+        nav ul div.items a {
+            text-decoration: none;
+            font-size: 18px;
+            padding: 0 12px;
+            color: #f2f2f2;
+        }
+
+        nav ul div.items a:hover {
+            /* color: cyan; */
+            background: #1b9bff;
+            transition: .5s;
+            border-radius: 5px;
+        }
+
+        nav ul .search-icon {
+            height: 40px;
+            width: 240px;
+            display: flex;
+            background: #f2f2f2;
+            border-radius: 5px;
+        }
+
+        nav ul .search-icon input {
+            height: 100%;
+            width: 200px;
+            border: none;
+            outline: none;
+            padding: 0 10px;
+            color: #b4b2b2;
+            font-size: 16px;
+            border-radius: 5px 0 0 5px;
+        }
+
+        nav ul .search-icon .icon {
+            height: 100%;
+            width: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid #cccccc;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        nav ul .search-icon .icon:hover {
+            background: #e6e6e6;
+        }
+
+        nav ul .search-icon .icon span {
+            color: #b4b2b2;
+            font-size: 18px;
+        }
+
+        nav ul li.btn {
+            font-size: 29px;
+            flex: 1;
+            padding: 0 40px;
+            display: none;
+        }
+
+        nav ul li.btn span {
+            height: 42px;
+            width: 42px;
+            text-align: center;
+            line-height: 42px;
+            border: 1px solid #151515;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        nav ul li.btn span.show:before {
+            content: '\f00d';
+        }
+
+        /* ---------------------------------------------------------MEDIA */
+        @media screen and (max-width: 1052px) {
+            nav {
+                padding: 10px 40px 10px 0px;
+            }
+
+            nav ul li.logo {
+                display: none;
+            }
+
+            nav ul div.items {
+                flex: 4;
+            }
+        }
+
+        /* ---------------------------------------------------------MEDIA */
+        @media screen and (max-width: 800px) {
+            nav ul li.btn {
+                display: block;
+            }
+
+            nav {
+                z-index: 1;
+                padding: 9px 40px 9px 0;
+            }
+
+            nav ul div.items {
+                z-index: -1;
+                position: fixed;
+                top: -220px;
+                right: 0;
+                width: 100%;
+                background: #222222;
+                display: inline-block;
+                transition: top .4s;
+            }
+
+            nav ul div.items.show {
+                top: 60px;
+            }
+
+            nav ul div.items li {
+                text-align: center;
+                line-height: 30px;
+                margin: 30px 0;
+            }
+
+            nav ul div.items li a {
+                font-size: 19px;
+            }
+        }
+
+        /* ---------------------------------------------------------MEDIA */
+        @media screen and (max-width: 405px) {
+            nav ul {
+                flex-wrap: nowrap;
+            }
+
+            nav ul li.search {
+                width: 50vmin;
+            }
+
+            nav ul li input {
+                width: 40vmin;
+            }
+
+            nav ul li .search-icon {
+                width: 10vmin;
+            }
+        }
+
+        /* ---------------------------------------------------------CONTENT */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            padding: 0 40px;
+            z-index: -2;
+        }
+
+        .content .text {
+            font-size: 40px;
+            font-weight: 800;
+            padding: 5px 0;
+            color: #b4b2b2;
+        }
+
+        .content .p {
+            font-size: 28px;
+            font-weight: 600;
+            color: #b4b2b2;
+        }
+
+        /* ---------------------------------------------- */
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        ::selection {
+            color: #fff;
+            background: #6663ff;
+        }
+
+        .wrapper {
+            max-width: 1080px;
+            margin: 50px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .wrapper .center-line {
+            position: absolute;
+            height: 100%;
+            width: 4px;
+            background: #fff;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+        }
+
+        .wrapper .row {
+            display: flex;
+        }
+
+        .wrapper .row-1 {
+            justify-content: flex-start;
+        }
+
+        .wrapper .row-2 {
+            justify-content: flex-end;
+        }
+
+        .wrapper .row section {
+            background: #fff;
+            border-radius: 5px;
+            width: calc(50% - 40px);
+            padding: 20px;
+            position: relative;
+        }
+
+        .wrapper .row section::before {
+            position: absolute;
+            content: "";
+            height: 15px;
+            width: 15px;
+            background: #fff;
+            top: 28px;
+            z-index: -1;
+            transform: rotate(45deg);
+        }
+
+        .row-1 section::before {
+            right: -7px;
+        }
+
+        .row-2 section::before {
+            left: -7px;
+        }
+
+        .row section .icon,
+        .center-line .scroll-icon {
+            position: absolute;
+            background: #f2f2f2;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #6663ff;
+            font-size: 17px;
+            box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .center-line .scroll-icon {
+            bottom: 0px;
+            left: 50%;
+            font-size: 25px;
+            transform: translateX(-50%);
+        }
+
+        .row-1 section .icon {
+            top: 15px;
+            right: -60px;
+        }
+
+        .row-2 section .icon {
+            top: 15px;
+            left: -60px;
+        }
+
+        .row section .details,
+        .row section .bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .row section .details .title {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .row section p {
+            margin: 10px 0 17px 0;
+        }
+
+        .row section .bottom a {
+            text-decoration: none;
+            background: #6663ff;
+            color: #fff;
+            padding: 7px 15px;
+            border-radius: 5px;
+            /* font-size: 17px; */
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .row section .bottom a:hover {
+            transform: scale(0.97);
+        }
+
+        /* ---------------------------------------------------------MEDIA */
+        @media(max-width: 790px) {
+            .wrapper .center-line {
+                left: 40px;
+            }
+
+            .wrapper .row {
+                margin: 30px 0 3px 60px;
+            }
+
+            .wrapper .row section {
+                width: 100%;
+            }
+
+            .row-1 section::before {
+                left: -7px;
+            }
+
+            .row-1 section .icon {
+                left: -60px;
+            }
+        }
+
+        /* ---------------------------------------------------------MEDIA */
+        @media(max-width: 440px) {
+
+            .wrapper .center-line,
+            .row section::before,
+            .row section .icon {
+                display: none;
+            }
+
+            .wrapper .row {
+                margin: 10px 0;
+            }
+        }
+    </style>
+
+
+
+    <!-- -------------------------------------------------------------------- -->
+
     <meta charset="UTF-8">
-    <title>Wayne Barrass-Brown Timeline</title>
+    <title>Timeline | Wayne Barrass-Brown</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style_all.css">
-    <link rel="stylesheet" href="../css/style_nav.css">
-    <link rel="stylesheet" href="../css/style_timeline.css">
+    <!-- <link rel="stylesheet" href="../css/style_all.css"> -->
+    <!-- <link rel="stylesheet" href="../css/style_nav.css"> -->
+    <!-- <link rel="stylesheet" href="../css/style_timeline.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
 
 
 <body>
-<!-- -------------------------------------- -->
- <!-- <nav><ul><li><logo><items><a> -->
-   <nav>
+    <!-- -------------------------------------- -->
+    <!-- <nav><ul><li><logo><items><a> -->
+    <nav>
         <ul>
             <li class="logo">Wayne Barrass-Brown</li>
-            <!-- <li class="btn"><span class="fas fa-bars"></span></li> -->
+            <li class="btn"><span class="fas fa-bars"></span></li>
             <div class="items">
                 <li><a href="#">Home</a></li>
                 <li><a href="../pages/about.html">About</a></li>
@@ -39,12 +426,12 @@
         </ul>
     </nav>
 
-    <!-- <script>
+    <script>
         $('nav ul li.btn span').click(function () {
             $('nav ul div.items').toggleClass("show");
             $('nav ul li.btn span').toggleClass("show");
         });
-    </script> -->
+    </script>
 
     <div class="wrapper">
         <div class="center-line">
@@ -59,9 +446,13 @@
                     <span>31st Dec 2022</span>
                 </div>
                 <p><strong>Scripting in ServiceNow Fundamentals On Demand</strong></p>
-                <p>This course begins with client-side scripting and transitions to server-side scripting. You will use your JavaScript background to write, test, and debug scripts using real-world use cases. This course features lectures, demos, and extensive opportunities to write scripts yourself in a wide variety of lab activities.</p>
+                <p>This course begins with client-side scripting and transitions to server-side scripting. You will use
+                    your JavaScript background to write, test, and debug scripts using real-world use cases. This course
+                    features lectures, demos, and extensive opportunities to write scripts yourself in a wide variety of
+                    lab activities.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=15cbcb7adbfec590421266f748961923" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=15cbcb7adbfec590421266f748961923"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -78,7 +469,8 @@
                 <p><strong>CCL1066-K22 - Building tables and importing data using App Engine Studio</strong></p>
                 <p>A CreatorCon lab from Knowledge 2022</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=8c5c7bf6db7e0990421266f7489619fd" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=8c5c7bf6db7e0990421266f7489619fd"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -93,9 +485,11 @@
                     <span>12th Dec 2022</span>
                 </div>
                 <p><strong>Introduction to App Engine Studio</strong></p>
-                <p>Learn how ServiceNow Citizen Developers can build great applications without writing any code, to keep innovation moving forward with Introduction to App Engine Studio.</p>
+                <p>Learn how ServiceNow Citizen Developers can build great applications without writing any code, to
+                    keep innovation moving forward with Introduction to App Engine Studio.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=ae0beaabdb4e8550788d2509139619dc" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=ae0beaabdb4e8550788d2509139619dc"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -110,9 +504,14 @@
                     <span>9th Dec 2022</span>
                 </div>
                 <p><strong>IT Service Management (ITSM) Fundamentals On Demand (San Diego)</strong></p>
-                <p>This course focuses on the lifecycle and process steps for Service Catalog, Request Management, Incident Management, Problem Management, and Change Management. This course reflects the San Diego release of the Now Platform®. It is highly recommended that you complete Welcome to ServiceNow and ServiceNow Administration Fundamentals to learn basic navigation, features, and benefits of the Now Platform before attempting this course.</p>
+                <p>This course focuses on the lifecycle and process steps for Service Catalog, Request Management,
+                    Incident Management, Problem Management, and Change Management. This course reflects the San Diego
+                    release of the Now Platform®. It is highly recommended that you complete Welcome to ServiceNow and
+                    ServiceNow Administration Fundamentals to learn basic navigation, features, and benefits of the Now
+                    Platform before attempting this course.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=58d4b3badb368114a87c2d3d56961979" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=58d4b3badb368114a87c2d3d56961979"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -127,9 +526,15 @@
                     <span>22nd Nov 2022</span>
                 </div>
                 <p><strong>ServiceNow Fundamentals On Demand</strong></p>
-                <p>ServiceNow Fundamentals is the starting point for all roles to begin their ServiceNow journey. Whether you are looking for a quick introduction to the Now Platform or are preparing for your Certified System Administrator (CSA) exam, this path is designed to target your exact needs. Based on your role, you can decide how far you want to explore this on demand course. Interactive lessons, use cases, and hands-on activities guide you through the core concepts needed to get started - and the on demand format allows you to work at your own pace.</p>
+                <p>ServiceNow Fundamentals is the starting point for all roles to begin their ServiceNow journey.
+                    Whether you are looking for a quick introduction to the Now Platform or are preparing for your
+                    Certified System Administrator (CSA) exam, this path is designed to target your exact needs. Based
+                    on your role, you can decide how far you want to explore this on demand course. Interactive lessons,
+                    use cases, and hands-on activities guide you through the core concepts needed to get started - and
+                    the on demand format allows you to work at your own pace.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_path_prev&path_id=6b78901c1b748050b1c7fe631a4bcb73" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_path_prev&path_id=6b78901c1b748050b1c7fe631a4bcb73"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -144,9 +549,11 @@
                     <span>22nd Nov 2022</span>
                 </div>
                 <p><strong>ServiceNow Fundamentals Course Summary</strong></p>
-                <p>A summary of achievements so far in completing the ServiceNow Fundamentals learning path with ServiceNow.</p>
+                <p>A summary of achievements so far in completing the ServiceNow Fundamentals learning path with
+                    ServiceNow.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=e03c1184db95c810dc52708768961925" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=e03c1184db95c810dc52708768961925"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -161,9 +568,11 @@
                     <span>22nd Nov 2022</span>
                 </div>
                 <p><strong>Additional ServiceNow Resources</strong></p>
-                <p>This course focuses on additional resources available to support and build your experience using ServiceNow.</p>
+                <p>This course focuses on additional resources available to support and build your experience using
+                    ServiceNow.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=570b5904db95c810dc52708768961935" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=570b5904db95c810dc52708768961935"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -177,10 +586,16 @@
                     <span class="title">ServiceNow Course</span>
                     <span>21st Nov 2022</span>
                 </div>
-                <p><strong>Additional ServiceNow Fundamentals Content for System Administrators and Developers</strong></p>
-                <p>As a ServiceNow Implementer, you are responsible for getting the platform, an application, or a feature into production. As a Now System Administrator, you are responsible for system access, ongoing maintenance, and the reliable operation of your instance stack. As a Now Developer, you automate your organization's complex business processes by extending existing platform applications or by creating new ones. In some organizations you may wear all hats.</p>
+                <p><strong>Additional ServiceNow Fundamentals Content for System Administrators and Developers</strong>
+                </p>
+                <p>As a ServiceNow Implementer, you are responsible for getting the platform, an application, or a
+                    feature into production. As a Now System Administrator, you are responsible for system access,
+                    ongoing maintenance, and the reliable operation of your instance stack. As a Now Developer, you
+                    automate your organization's complex business processes by extending existing platform applications
+                    or by creating new ones. In some organizations you may wear all hats.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=3b9eacee1b1408105c28997fbd4bcb9a" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=3b9eacee1b1408105c28997fbd4bcb9a"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -195,9 +610,12 @@
                     <span>23rd Oct 2022</span>
                 </div>
                 <p><strong>Flow Designer: Create Subflows and Actions (Rome)</strong></p>
-                <p>Flow Designer enables rich process automation capabilities in a single design environment. Natural language is used to configure the automation of approvals, tasks, notifications, and record operations without coding.</p>
+                <p>Flow Designer enables rich process automation capabilities in a single design environment. Natural
+                    language is used to configure the automation of approvals, tasks, notifications, and record
+                    operations without coding.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=246bb1e3dbf2a0507aa13df33996192b" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=246bb1e3dbf2a0507aa13df33996192b"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -214,7 +632,8 @@
                 <p><strong>ServiceNow Fundamentals Choose Your Next Step</strong></p>
                 <p>Instructors describe the ServiceNow Fundamentals learning path's next steps.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=e99fd0901bb48050b1c7fe631a4bcb1f" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=e99fd0901bb48050b1c7fe631a4bcb1f"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -229,9 +648,12 @@
                     <span>22nd Oct 2022</span>
                 </div>
                 <p><strong>Flow Designer Overview</strong></p>
-                <p>Flow Designer provides capabilities for automating processes in a single design environment. This course reviews how to create a new flow using a trigger, actions, and data. It also reviews when the Flow Designer should be used, rather than the Workflow Designer.</p>
+                <p>Flow Designer provides capabilities for automating processes in a single design environment. This
+                    course reviews how to create a new flow using a trigger, actions, and data. It also reviews when the
+                    Flow Designer should be used, rather than the Workflow Designer.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=567f50901bb48050b1c7fe631a4bcb68" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=567f50901bb48050b1c7fe631a4bcb68"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -248,7 +670,8 @@
                 <p><strong>ServiceNow Fundamentals Simulator (San Diego)</strong></p>
                 <p>The simulator will help guide your work by providing feedback and recommendations along the way.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=a8e898a3db924510ad1cf9c8f496191d" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=a8e898a3db924510ad1cf9c8f496191d"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -264,9 +687,12 @@
                     <span>20th Oct 2022</span>
                 </div>
                 <p><strong>Service Catalog Overview</strong></p>
-                <p>A Service Catalog is used to provide a simple interface for requesting items and services. It provides categorized options for employees, customers, and suppliers to help them find what they need quickly. This course reviews the features and benefits of the Service Catalog.</p>
+                <p>A Service Catalog is used to provide a simple interface for requesting items and services. It
+                    provides categorized options for employees, customers, and suppliers to help them find what they
+                    need quickly. This course reviews the features and benefits of the Service Catalog.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=1c7f9c501bb48050b1c7fe631a4bcb9e" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=1c7f9c501bb48050b1c7fe631a4bcb9e"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -281,9 +707,13 @@
                     <span>20th Oct 2022</span>
                 </div>
                 <p><strong>Knowledge Management Overview</strong></p>
-                <p>Knowledge Management includes the maintenance of knowledge bases, the creation of knowledge articles, and the management of the security measures that control access. Knowledge bases provide value in a variety of ways, including dissemination of information, instructions, and product announcements. This course provides instructions on how to use a knowledge base and create knowledge articles.</p>
+                <p>Knowledge Management includes the maintenance of knowledge bases, the creation of knowledge articles,
+                    and the management of the security measures that control access. Knowledge bases provide value in a
+                    variety of ways, including dissemination of information, instructions, and product announcements.
+                    This course provides instructions on how to use a knowledge base and create knowledge articles.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=256f10901bb48050b1c7fe631a4bcb1f" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=256f10901bb48050b1c7fe631a4bcb1f"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -298,9 +728,11 @@
                     <span>20th Oct 2022</span>
                 </div>
                 <p><strong>Reporting Overview</strong></p>
-                <p>ServiceNow includes 25 standard report types to display data from any instance. Learn to create new reports, utilize existing reports, and share reports. Metrics and dashboards are also discussed.</p>
+                <p>ServiceNow includes 25 standard report types to display data from any instance. Learn to create new
+                    reports, utilize existing reports, and share reports. Metrics and dashboards are also discussed.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=8b5f9c501bb48050b1c7fe631a4bcbce" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=8b5f9c501bb48050b1c7fe631a4bcbce"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -316,15 +748,18 @@
                     <span>19th Oct 2022</span>
                 </div>
                 <p><strong>Notifications Overview</strong></p>
-                <p>Notifications are used to provide important updates in a timely manner. This course describes how to create notifications and assign variables to incorporate information, such as the user's name. Additionally, inbound actions and subscribing to notifications are discussed.</p>
+                <p>Notifications are used to provide important updates in a timely manner. This course describes how to
+                    create notifications and assign variables to incorporate information, such as the user's name.
+                    Additionally, inbound actions and subscribing to notifications are discussed.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=805fdc501bb48050b1c7fe631a4bcb56" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=805fdc501bb48050b1c7fe631a4bcb56"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
         </div>
 
-        
+
         <div class="row row-1">
             <section>
                 <i class="icon fas fa-star"></i>
@@ -333,9 +768,11 @@
                     <span>19th Oct 2022</span>
                 </div>
                 <p><strong>Predictive Intelligence Fundamentals</strong></p>
-                <p>Learn how Predictive Intelligence is used to categorize, route, and prioritize issues automatically, and how to find and group similar records with Predictive Intelligence Fundamentals.</p>
+                <p>Learn how Predictive Intelligence is used to categorize, route, and prioritize issues automatically,
+                    and how to find and group similar records with Predictive Intelligence Fundamentals.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=75c32582db4fe0d030c91fdc13961990" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=75c32582db4fe0d030c91fdc13961990"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -350,9 +787,13 @@
                     <span>16th Oct 2022</span>
                 </div>
                 <p><strong>Task Management Overview</strong></p>
-                <p>Tasks are how work is handled in ServiceNow. They are assigned to users and groups, and can be incidents, problems, change requests, and more. This course reviews task management, including the importance of proper role, group, and user assignments, assignment rules, user presence, and the activity stream. Visual Task Boards and their value are also discussed.</p>
+                <p>Tasks are how work is handled in ServiceNow. They are assigned to users and groups, and can be
+                    incidents, problems, change requests, and more. This course reviews task management, including the
+                    importance of proper role, group, and user assignments, assignment rules, user presence, and the
+                    activity stream. Visual Task Boards and their value are also discussed.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=4d4f5c501bb48050b1c7fe631a4bcb05" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=4d4f5c501bb48050b1c7fe631a4bcb05"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -368,9 +809,12 @@
                     <span>12th Oct 2022</span>
                 </div>
                 <p><strong>Forms Overview</strong></p>
-                <p>Forms display the contents of a single record. This course reviews the form menu options, layout configuration, personalization, and record updates. Additional topics include activity streams and related lists.</p>
+                <p>Forms display the contents of a single record. This course reviews the form menu options, layout
+                    configuration, personalization, and record updates. Additional topics include activity streams and
+                    related lists.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=d13f5c501bb48050b1c7fe631a4bcb0a" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=d13f5c501bb48050b1c7fe631a4bcb0a"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -385,9 +829,15 @@
                     <span>11th Oct 2022</span>
                 </div>
                 <p><strong>Lists and Filters Overview</strong></p>
-                <p>Lists display a collection of records on a table. They also make it easy for users to sort, search, filter, and analyze information quickly. Configuration and personalization of lists is important to the effective use of the Now Platform. Filters provide a set of conditions that each record must meet to be included in the list. This course reviews the title bar, filters, and search capabilities. Learn how to create different views for different needs, and how to edit records directly from the list.</p>
+                <p>Lists display a collection of records on a table. They also make it easy for users to sort, search,
+                    filter, and analyze information quickly. Configuration and personalization of lists is important to
+                    the effective use of the Now Platform. Filters provide a set of conditions that each record must
+                    meet to be included in the list. This course reviews the title bar, filters, and search
+                    capabilities. Learn how to create different views for different needs, and how to edit records
+                    directly from the list.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=a63e9c101bb48050b1c7fe631a4bcbd3" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=a63e9c101bb48050b1c7fe631a4bcbd3"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -402,9 +852,11 @@
                     <span>9th Oct 2022</span>
                 </div>
                 <p><strong>ServiceNow Fundamentals: Help Me Choose</strong></p>
-                <p>Decide which ServiceNow Fundamentals course format is appropriate for you to learn fundamental Now Platform features.</p>
+                <p>Decide which ServiceNow Fundamentals course format is appropriate for you to learn fundamental Now
+                    Platform features.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=b08754a91ba94cd05c28997fbd4bcbc8" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=b08754a91ba94cd05c28997fbd4bcbc8"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -419,16 +871,19 @@
                     <span>9th Oct 2022</span>
                 </div>
                 <p><strong>Next Experience Unified Navigation Overview</strong></p>
-                <p>This course reviews how to navigate around Now Platform user interface. It highlights time saving features to make your work more efficient throughout the system, and provides an in-depth review of the application navigator.</p>
+                <p>This course reviews how to navigate around Now Platform user interface. It highlights time saving
+                    features to make your work more efficient throughout the system, and provides an in-depth review of
+                    the application navigator.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=5c2dd0101bb48050b1c7fe631a4bcbf9" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=5c2dd0101bb48050b1c7fe631a4bcbf9"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
         </div>
 
 
-    
+
         <div class="row row-1">
             <section>
                 <i class="icon fas fa-star"></i>
@@ -437,9 +892,11 @@
                     <span>9th Oct 2022</span>
                 </div>
                 <p><strong>Agile Development 2.0 Fundamentals (Rome)</strong></p>
-                <p>The fundamentals of ServiceNow's Agile Development 2.0 application, including how to create products, agile groups, releases, personalized backlogs, and sprints including tracking progress.</p>
+                <p>The fundamentals of ServiceNow's Agile Development 2.0 application, including how to create products,
+                    agile groups, releases, personalized backlogs, and sprints including tracking progress.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=6abcdfcf1b3e74589ab10f66624bcb31" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=6abcdfcf1b3e74589ab10f66624bcb31"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -454,9 +911,11 @@
                     <span>9th Oct 2022</span>
                 </div>
                 <p><strong>Introduction to Now Experience UI Builder</strong></p>
-                <p>Explore the basics of Now Experience UI Builder and how it can be used to build pages for workspace or custom portal experiences within ServiceNow using web components.</p>
+                <p>Explore the basics of Now Experience UI Builder and how it can be used to build pages for workspace
+                    or custom portal experiences within ServiceNow using web components.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=76d2e8911b687c5011baece5624bcb02" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=76d2e8911b687c5011baece5624bcb02"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -471,9 +930,12 @@
                     <span>7th Oct 2022</span>
                 </div>
                 <p><strong>ServiceNow Platform Overview</strong></p>
-                <p>This course provides an introduction to ServiceNow, and an overview of the Now Platform. The course reviews case studies, discusses the platform architecture, and introduces the variety of user interfaces which can be used to access the Now Platform.</p>
+                <p>This course provides an introduction to ServiceNow, and an overview of the Now Platform. The course
+                    reviews case studies, discusses the platform architecture, and introduces the variety of user
+                    interfaces which can be used to access the Now Platform.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=490cd4dc1b748050b1c7fe631a4bcb73" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=490cd4dc1b748050b1c7fe631a4bcb73"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -488,9 +950,11 @@
                     <span>7th Oct 2022</span>
                 </div>
                 <p><strong>ServiceNow Fundamentals Introduction</strong></p>
-                <p>Designed to describe the ServiceNow Fundamentals learning path and what to expect from the learning path.</p>
+                <p>Designed to describe the ServiceNow Fundamentals learning path and what to expect from the learning
+                    path.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=2299185c1b748050b1c7fe631a4bcb96" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=2299185c1b748050b1c7fe631a4bcb96"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -506,9 +970,12 @@
                     <span>7th Oct 2022</span>
                 </div>
                 <p><strong>Virtual Agent Overview</strong></p>
-                <p>Virtual Agent provides a conversational bot to assist employees in finding the answers they need. Virtual Agent can be used with knowledge bases and service catalogs to guide employees to quickly obtain the answers without service desk intervention.</p>
+                <p>Virtual Agent provides a conversational bot to assist employees in finding the answers they need.
+                    Virtual Agent can be used with knowledge bases and service catalogs to guide employees to quickly
+                    obtain the answers without service desk intervention.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=5d8f50901bb48050b1c7fe631a4bcb93" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=5d8f50901bb48050b1c7fe631a4bcb93"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -523,9 +990,13 @@
                     <span>26th Sept 2022</span>
                 </div>
                 <p><strong>Micro-Certification - Welcome to ServiceNow</strong></p>
-                <p>The Micro-Certification - Welcome to ServiceNow certifies that a successful candidate has the skill and knowledge to navigate the Next Experience UI and use the following areas of the Platform: Lists and Filters, Forms, Visual Task Boards (VTBs), the Report Designer and Dashboards, Knowledge, and Service Catalog.</p>
+                <p>The Micro-Certification - Welcome to ServiceNow certifies that a successful candidate has the skill
+                    and knowledge to navigate the Next Experience UI and use the following areas of the Platform: Lists
+                    and Filters, Forms, Visual Task Boards (VTBs), the Report Designer and Dashboards, Knowledge, and
+                    Service Catalog.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=938eb5358724d91cd3be437e0ebb3597" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=938eb5358724d91cd3be437e0ebb3597"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -542,7 +1013,8 @@
                 <p><strong>Welcome to ServiceNow</strong></p>
                 <p>Geting started with the ServiceNow platform.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=023708df1bc0119cf95e99b8bd4bcb76" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=023708df1bc0119cf95e99b8bd4bcb76"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
@@ -557,9 +1029,11 @@
                     <span>24th Sept 2022</span>
                 </div>
                 <p><strong>Dot-walking in the ServiceNow Platform</strong></p>
-                <p>Dot-walking in the Now Platform is a term used to describe accessing fields on related tables from a form, list, or script.</p>
+                <p>Dot-walking in the Now Platform is a term used to describe accessing fields on related tables from a
+                    form, list, or script.</p>
                 <div class="bottom">
-                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=b38b9b5d1b9c1dd4998555fa234bcbc5" target="_blank" rel="noopener noreferrer">Read more</a>
+                    <a href="https://nowlearning.servicenow.com/lxp?id=learning_course_prev&course_id=b38b9b5d1b9c1dd4998555fa234bcbc5"
+                        target="_blank" rel="noopener noreferrer">Read more</a>
                     <i>- ON-DEMAND COURSE</i>
                 </div>
             </section>
