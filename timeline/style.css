@@ -9,11 +9,11 @@ html{
   scroll-behavior: smooth;
 }
 body{
-  background: #ff7979;
+  background: #79baff;
 }
 ::selection{
   color: #fff;
-  background: #ff7979;
+  background: #61a8f4;
 }
 .wrapper{
   max-width: 1080px;
@@ -71,7 +71,7 @@ body{
   text-align: center;
   line-height: 40px;
   border-radius: 50%;
-  color: #ff7979;
+  color: #79baff;
   font-size: 17px;
   box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,0.08), 0 3px 0 4px rgba(0,0,0,0.05);
 }
@@ -104,7 +104,7 @@ body{
 }
 .row section .bottom a{
   text-decoration: none;
-  background: #ff7979;
+  background: #79baff;
   color: #fff;
   padding: 7px 15px;
   border-radius: 5px;
