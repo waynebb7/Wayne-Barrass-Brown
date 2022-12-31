@@ -1,0 +1,30 @@
+To Do
+
+1. Create placeholders for each page and map out the visitors path.
+2. Pages required are: 
+    Home
+    About
+    Contact
+    Testimonials
+    Games
+    Timeline
+    Gallery
+    Projects
+    Links to social media:
+        YouTube
+        Twitter
+        FaceBook
+        Instagram
+        GitHub
+        LinkedIn
+        etc
+    Databases
+    AutoCAD
+    CV
+    Certificates
+    Knowledge Base
+    WIKI
+    Stack Overflow
+3. Map out what the names of each component is to be called so that the CSS can be built to cover all pages.
+4. Move all .html pages to the main folder.
+5. Merge all CSS files or at least break up into sensible sections.
