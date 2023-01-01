@@ -1,0 +1,71 @@
+<!-- -----------------------------------BASELINE -->
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <style>
+        ul {
+            margin: 3em 0;
+        }
+
+        .navbar1 {
+            font-family: initial;
+        }
+
+        .navbar2 li {
+            padding-inline-start: 0.1em;
+            list-style-type: square;
+        }
+
+        .navbar2 li::marker,
+        .navbar2 a {
+            color: darkgreen;
+        }
+
+        .navbar3 li {
+            padding-inline-start: 0.5em;
+        }
+
+        .navbar3 li::marker {
+            content: "😋";
+            padding: 1rem;
+        }
+
+        .navbar3 a {
+            text-decoration: none;
+            color: deeppink;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="navbar1">
+            <li><a href="">Home</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+
+    <nav>
+        <ul class="navbar2">
+            <li><a href="">Home</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+
+    <nav>
+        <ul class="navbar3">
+            <li><a href="">Home</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>
