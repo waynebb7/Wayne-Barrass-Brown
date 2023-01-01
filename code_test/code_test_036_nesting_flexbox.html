@@ -1,0 +1,164 @@
+<!-- -----------------------------------BASELINE
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure 
+
+https://codepen.io/jensimmons/pen/dybjNLQ -->
+
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Baseline Webpage</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- <meta name="description" content="A description of this site that will show up in the search engine results."> -->
+    <!-- <meta name="application-name" content="Filament Group"> -->
+    <!-- <meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png"> -->
+    <!-- <meta name="theme-color" content="#247200"> -->
+    <!-- <link rel="manifest" href="/webappmanifest.json"> -->
+    <!-- <link href="main.css" rel="stylesheet"> -->
+    <!-- <link rel="icon" href="favicon.ico"> -->
+    <!-- <link rel="preload" href="myFont.woff2" as="font" type="font/woff2" crossorigin="anonymous"> -->
+    <!-- <script src="my-javascript-file.js"></script> -->
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 1rem;
+        }
+
+        /* Just for the fallback layout */
+
+        main {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        article {
+            margin: 1rem 0;
+        }
+
+        /* Now lets do a Grid-based layout */
+
+        @supports (display: grid) {
+            main {
+                max-width: 10000px;
+                margin: 0;
+            }
+
+            article {
+                margin: 0;
+            }
+
+            .deals {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-gap: 1rem;
+            }
+        }
+
+        .deals {
+            font-family: Avenir, Roboto, Helvetica, san-serif;
+            font-size: 80%;
+        }
+
+        .sale-item {
+            display: flex;
+            flex-flow: column;
+            border: 1px solid black;
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+
+        .sale-item>h1 {
+            margin: 1rem 1rem 0;
+        }
+
+        .sale-item>ul {
+            margin: 0 0 1rem;
+        }
+
+        .sale-item>p {
+            margin: 0.25em 1rem 1rem;
+        }
+
+        .sale-item>img {
+            order: -1;
+            align-self: center;
+        }
+
+        .sale-item>button {
+            margin-top: auto;
+            background: teal;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 1rem;
+            font-size: 1.2rem;
+        }
+    </style>
+
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <main>
+        <main class="deals">
+            <article class="sale-item">
+                <h1>Computer Starter Kit</h1>
+                <p>This is the best computer money can buy, if you don’t have much money.</p>
+                <ul>
+                    <li>Computer</li>
+                    <li>Monitor</li>
+                    <li>Keyboard</li>
+                    <li>Mouse</li>
+                </ul>
+                <img src="https://www.w3.org/TR/css-flexbox-1/images/computer.jpg"
+                    alt="You get: a white computer with matching peripherals">
+                <button>BUY NOW</button>
+            </article>
+
+            <article class="sale-item">
+                <h1>Printer</h1>
+                <p>Only capable of printing ASCII art.</p>
+                <ul>
+                    <li>Paper and ink not included.</li>
+                </ul>
+                <img src="https://www.w3.org/TR/css-flexbox-1/images/printer.png" alt="You get: a dot-matrix printer.">
+                <button>BUY NOW</button>
+            </article>
+
+            <article class="sale-item">
+                <h1>Printer 2</h1>
+                <p>A la 1989.</p>
+                <img src="https://www.w3.org/TR/css-flexbox-1/images/printer.png" alt="You get: a dot-matrix printer.">
+                <button>BUY NOW</button>
+            </article>
+
+            <article class="sale-item">
+                <h1>Mouse</h1>
+                <p>A computer mouse is a pointing device (hand control) that detects two-dimensional motion relative to
+                    a surface. This motion is typically translated into the motion of a pointer on a display, which
+                    allows a smooth control of the graphical user interface. Clickity Click!</p>
+                <button>BUY NOW</button>
+            </article>
+
+            <article class="sale-item">
+                <h1>Macintosh 8500</h1>
+                <p>This is the best computer money can buy, if you don’t have much money. This computer was state of the
+                    art in 1995.</p>
+                <img src="https://www.w3.org/TR/css-flexbox-1/images/computer.jpg"
+                    alt="You get: a white computer with matching peripherals.">
+                <button>BUY NOW</button>
+            </article>
+        </main>
+    </main>
+</body>
+
+</html>

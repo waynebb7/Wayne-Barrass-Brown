@@ -1,0 +1,111 @@
+<!-- -----------------------------------BASELINE
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure 
+
+https://codepen.io/jensimmons/pen/dybjNLQ -->
+
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Baseline Webpage</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- <meta name="description" content="A description of this site that will show up in the search engine results."> -->
+    <!-- <meta name="application-name" content="Filament Group"> -->
+    <!-- <meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png"> -->
+    <!-- <meta name="theme-color" content="#247200"> -->
+    <!-- <link rel="manifest" href="/webappmanifest.json"> -->
+    <!-- <link href="main.css" rel="stylesheet"> -->
+    <!-- <link rel="icon" href="favicon.ico"> -->
+    <!-- <link rel="preload" href="myFont.woff2" as="font" type="font/woff2" crossorigin="anonymous"> -->
+    <!-- <script src="my-javascript-file.js"></script> -->
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #F0F0F0;
+            margin: 0;
+        }
+
+        main {
+            /* autoprefixer: off */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.06);
+        }
+
+
+        /* Support Note
+        ------------------------------------------------------------- */
+        .warning {
+            margin-left: 1em;
+            max-width: 600px;
+            font-size: 80%;
+            color: red;
+        }
+
+        @supports (display:grid) {
+            .warning {
+                display: none;
+            }
+        }
+    </style>
+
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <div class="warning">This demo only works in browsers that support CSS Grid Layout. If you can see this message,
+        then your browser isn't supporting Grid. You can try out Grid in <a href="https://nightly.mozilla.org/">Firefox
+            Nightly</a> or <a href="http://gridbyexample.com/browsers/">other browsers by flipping a flag</a>.</div>
+
+    <main role="main">
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/alfalfa-seeds.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/allspice-ground.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/applepiespice.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/basil.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/bay-leaves.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/blackpepper.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/cardamom.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/celery-salt.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/chicken-flavor-broth-powder.jpg">
+        </figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/chile-peppers-birdseye.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/chives.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/cider-mate-mulling.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/cumin.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/dill-seed.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/lavender-flowers.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/nutmeg-whole.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/oregano-leaf.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/peppermill.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/pizza-seasoning.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/rosebuds.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/rosemary.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/saffron.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/savory-winter.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/star-anise.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/tarragon-leaf.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/vegbrothpowder.jpg"></figure>
+        <figure><img src="http://labs.jensimmons.com/2016/examples/images/spices/zaatar.jpg"></figure>
+    </main>
+
+</body>
+
+</html>

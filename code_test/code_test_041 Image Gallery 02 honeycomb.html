@@ -1,0 +1,165 @@
+<!-- -----------------------------------BASELINE
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure 
+
+https://codepen.io/jensimmons/pen/dybjNLQ -->
+
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Baseline Webpage</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- <meta name="description" content="A description of this site that will show up in the search engine results."> -->
+    <!-- <meta name="application-name" content="Filament Group"> -->
+    <!-- <meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png"> -->
+    <!-- <meta name="theme-color" content="#247200"> -->
+    <!-- <link rel="manifest" href="/webappmanifest.json"> -->
+    <!-- <link href="main.css" rel="stylesheet"> -->
+    <!-- <link rel="icon" href="favicon.ico"> -->
+    <!-- <link rel="preload" href="myFont.woff2" as="font" type="font/woff2" crossorigin="anonymous"> -->
+    <!-- <script src="my-javascript-file.js"></script> -->
+
+    <style>
+        div {
+            width: 125px;
+            height: 125px;
+            background-color: blue;
+            display: inline-block;
+            margin: -15px 0;
+            background-image: url(http://placekitten.com/g/125/125);
+            -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+            clip-path: url('#c1');
+        }
+
+        div:nth-of-type(2n) {
+            background-color: red;
+            background-image: url(http://placekitten.com/g/130/130);
+        }
+
+        div:nth-of-type(3n) {
+            background-color: green;
+            background-image: url(http://placekitten.com/g/120/120);
+        }
+
+        div:nth-of-type(5n) {
+            background-color: purple;
+            background-image: url(http://placekitten.com/g/135/135);
+        }
+
+        div:nth-of-type(7n) {
+            background-color: orange;
+            background-image: url(http://placekitten.com/g/140/140);
+        }
+
+        div:nth-of-type(8n) {
+            background-color: pink;
+            background-image: url(http://placekitten.com/g/145/145);
+        }
+
+        div:nth-of-type(9n) {
+            background-color: yellow;
+            background-image: url(http://placekitten.com/g/150/150);
+        }
+
+        div:nth-of-type(13n) {
+            background-color: black;
+            background-image: url(http://placekitten.com/g/150/195);
+        }
+
+        div:nth-of-type(6n)~div {
+            -webkit-transform: translateX(62.5px);
+            transform: translateX(62.5px);
+
+        }
+
+        div:nth-of-type(12n)~div {
+
+            -webkit-transform: none;
+            transform: none;
+        }
+
+        div:nth-of-type(18n)~div {
+            -webkit-transform: translateX(62.5px);
+            transform: translateX(62.5px);
+        }
+
+        div:nth-of-type(24n)~div {
+            -webkit-transform: none;
+            transform: none;
+        }
+
+        div:nth-of-type(30)~div {
+            -webkit-transform: translateX(62.5px);
+            transform: translateX(62.5px);
+        }
+
+        div:nth-of-type(36n)~div {
+            -webkit-transform: none;
+            transform: none;
+        }
+
+        section {
+            width: 800px
+        }
+    </style>
+
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <main>
+
+        <article></article>
+        <section>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+        <svg height="0">
+            <clipPath id="c1">
+                <polygon points="62.5,0 125,32.75 125,93.75 62.5,125 0,93.75 0,32.75" fill="#fa5"></polygon>
+            </clipPath>
+        </svg>
+    </main>
+
+</body>
+
+</html>
