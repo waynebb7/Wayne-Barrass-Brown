@@ -1,16 +1,113 @@
-<!-- -----------------------------------BASELINE -->
+<!-- -----------------------------------BASELINE
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure -->
+
+
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
 
 <head>
-    <style>
+    <meta charset="utf-8">
+    <title>Baseline Wbpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A description of this site that will show up in the search engine results.">
+    <meta name="application-name" content="Filament Group">
+    <meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+    <meta name="theme-color" content="#247200">
+    <link rel="manifest" href="/webappmanifest.json">
+    <link href="main.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
+    <link rel="preload" href="myFont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <script src="my-javascript-file.js"></script>
 
+    <style>
     </style>
 </head>
 
 <body>
+    <header>
+        <h1>Header h1</h1>
+    </header>
 
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Our team</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <!-- A Search form is another common non-linear way to navigate through a website. -->
+
+        <form>
+            <input type="search" name="q" placeholder="Search query" />
+            <input type="submit" value="Go!" />
+        </form>
+    </nav>
+
+    <!-- Here is our page's main content -->
+    <main>
+        <!-- It contains an article -->
+        <article>
+            <h2>Article heading</h2>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam
+                lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam
+                viverra nec consectetur ant hendrerit. Donec et mollis dolor. Praesent
+                et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt
+                congue enim, ut porta lorem lacinia consectetur.
+            </p>
+
+            <h3>Subsection</h3>
+
+            <p>
+                Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum
+                dolor sit amet, consectetur adipisicing elit. Aenean ut gravida lorem.
+                Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
+            </p>
+
+            <p>
+                Pelientesque auctor nisi id magna consequat sagittis. Curabitur
+                dapibus, enim sit amet elit pharetra tincidunt feugiat nist imperdiet.
+                Ut convallis libero in urna ultrices accumsan. Donec sed odio eros.
+            </p>
+
+            <h3>Another subsection</h3>
+
+            <p>
+                Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum
+                soclis natoque penatibus et manis dis parturient montes, nascetur
+                ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem
+                facilisis semper ac in est.
+            </p>
+
+            <p>
+                Vivamus fermentum semper porta. Nunc diam velit, adipscing ut
+                tristique vitae sagittis vel odio. Maecenas convallis ullamcorper
+                ultricied. Curabitur ornare, ligula semper consectetur sagittis, nisi
+                diam iaculis velit, is fringille sem nunc vet mi.
+            </p>
+        </article>
+
+        <!-- the aside content can also be nested within the main content -->
+        <aside>
+            <h2>Related</h2>
+
+            <ul>
+                <li><a href="#">Oh I do like to be beside the seaside</a></li>
+                <li><a href="#">Oh I do like to be beside the sea</a></li>
+                <li><a href="#">Although in the North of England</a></li>
+                <li><a href="#">It never stops raining</a></li>
+                <li><a href="#">Oh well…</a></li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- And here is our main footer that is used across all the pages of our website -->
+
+    <footer>
+        <p>&copy; Copyright 2050 by nobody. All rights reversed.</p>
+    </footer>
 </body>
 
 </html>
