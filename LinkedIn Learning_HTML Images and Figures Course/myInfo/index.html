@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chapter 1-1: The &lt;img&gt; element and src attribute </title>
+  <meta charset="utf-8">
+  <style type="text/css">
+    body {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 16pt;
+    }
+
+    img {
+      border: 4px double black;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    Image Manipulation
+  </p>
+
+  <div>
+    <img src="../../art gallery/images/Manga and Anime Montage.png" alt="" height="300" width="1500">
+  </div>
+  <p>
+    Borders, Padding & Spacing
+  </p>
+  <p>Border styles:<br>none<br>hidden<br>dotted<br>dashed<br>solid<br>double<br>groove<br>ridge<br>inset<br>outset</p>
+  <p>Setting Margins (space inside the border)</p>
+  <p>Margins can be set:<br>margin-left: length<br>margin-right: length<br>margin-top: length<br>margin-bottom:
+    length<br>margin:top right bottom left; <br>margin: top-and-bottom right-and-left</p>
+
+  <p>Setting Padding (space outside the border)</p>
+  <p>Padding can be set:<br>padding-left: length<br>padding-right: length<br>padding-top: length<br>padding-bottom:
+    length<br>padding:top right bottom left; <br>padding: top-and-bottom right-and-left</p>
+
+  <p>Text - Vertical Alignment</p>
+  <p>Vertical alignment can be set:<br>vertical-align: baseline<br>vertical-align: sub<br>vertical-align:
+    super<br>vertical-align: text-top<br>vertical-align: text-bottom<br>vertical-align: middle<br>vertical-align:
+    top<br>vertical-align: bottom<br>vertical-align: percentage<br>vertical-align: length</p>
+
+  <p>Text flow around image</p>
+  <p>Float can be set:<br>float: left<br>float: right<br>float: inline-start<br>float: inline-end</p>
+  <p>Example: <code>style="float:left; padding: 0 0.5em 0.5em 0"</code></p>
+  <p>Example: <code>style="clear: left"</code> This prevents text starting until it is vertically clear of the image on
+    the LEFT. (right & both can be used)</p>
+
+  <p>Rotate an image</p>
+  <p>Rotation can be set:<br><code>style="transform: rotate(-20deg)</code></p>
+
+  <p>Move an image in X or Y direction using translate</p>
+  <p>TranslationX can be set:<br><code>style="translateX: (30px)</code></p>
+  <p>TranslationY can be set:<br><code>style="translateY: (30px)</code></p>
+
+  <p>Modify image to fit inside a shape</p>
+  <p>clip-path can be set:<br><code>style="clip-path: circle(radius at x, y)</code></p>
+  <p>clip-path can be set:<br><code>style="clip-path: ellipse(radius radius at x, y)</code></p>
+  <p>clip-path can be set:<br><code>style="clip-path: polygon(x1, y1, x2, y2, ...)</code></p>
+
+  <p>Modify image to be a fixed background</p>
+  <p><code>style="background:<br>url("xxxxxxx.png")<br>no-repeat<br>right 20px top 20 px<br>fixed;</code></p>
+
+  <p>Responsive Images</p>
+  <p>This code is always required:
+    <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></p>
+  <p>Plus this in the image section: <code>srcset="image1.jpg, image2.jpg, ..."</code></p>
+  <p>Use sizes to ensure that each picture displays at 50% viewport width. <code>sizes="50vw"</code></p>
+  <p>Refer to this course 'Using srcset and sizes' as the demo is good.</p>
+
+</body>
+
+</html>
